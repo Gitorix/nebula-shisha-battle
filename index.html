@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#05060a" />
+  <title>NEBULA — Electric Shisha Tap Battle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="solo.css" />
+  <link rel="stylesheet" href="effects.css" />
+  <link rel="stylesheet" href="pause.css" />
+  <link rel="stylesheet" href="refinements.css" />
+  <link rel="stylesheet" href="finishing.css" />
+  <link rel="stylesheet" href="final-polish.css" />
+  <link rel="stylesheet" href="fix.css" />
+  <link rel="stylesheet" href="home-background.css" />
+  <style>.solo-launch{display:block;margin:-7px auto 18px;border:0;background:transparent;color:#7cdff0;font-size:9px;font-weight:700;letter-spacing:.19em;cursor:pointer;padding:10px 24px}.solo-launch small{display:block;margin-top:5px;color:#59677d;font-size:7px;letter-spacing:.1em}.solo-launch:hover{color:#fff;text-shadow:0 0 16px #24eaff}.pause-trigger{position:fixed!important;top:20px!important}</style>
+</head>
+<body>
+  <canvas id="fx"></canvas>
+  <div class="noise"></div>
+  <main>
+    <header>
+      <a class="brand" href="#" aria-label="NEBULA Home">
+        <span class="brand-mark"></span>
+        <span>NEBULA</span><small>SHISHA LAB</small>
+      </a>
+      <button class="sound" id="soundBtn" aria-label="サウンド切替"><span></span><span></span><span></span><span></span></button>
+    </header>
+
+    <section class="game-shell" id="gameShell">
+      <div class="mode-row">
+        <div class="eyebrow">ELECTRIC SHISHA EXPERIENCE</div>
+        <div class="segmented" role="tablist">
+          <button class="active" data-mode="battle">2P BATTLE</button>
+          <button data-mode="solo">TIME ATTACK</button>
+        </div>
+        <button class="pause-trigger" id="pauseBtn" aria-label="ゲームを一時停止"><i></i><i></i><span>PAUSE</span></button>
+      </div>
+
+      <div class="hud">
+        <div class="player-card cyan" id="p1card">
+          <div class="player-label"><span>PLAYER 1</span><em>A KEY / TAP</em></div>
+          <strong id="score1">0</strong><small>ML</small>
+          <div class="charge"><i id="bar1"></i></div>
+        </div>
+        <div class="timer-wrap">
+          <span id="roundLabel">ROUND 01</span>
+          <div class="timer" id="timer">10.0</div>
+          <small>SECONDS</small>
+        </div>
+        <div class="player-card violet" id="p2card">
+          <div class="player-label"><span>PLAYER 2</span><em>L KEY / TAP</em></div>
+          <strong id="score2">0</strong><small>ML</small>
+          <div class="charge"><i id="bar2"></i></div>
+        </div>
+      </div>
+
+      <div class="arena">
+        <div class="halo"></div>
+        <div class="beam left"></div><div class="beam right"></div>
+        <img class="shisha" src="assets/electric-shisha.png" alt="二本のホースを備えた電子シーシャ" draggable="false" />
+        <div class="water-glow" id="waterGlow"></div>
+        <div class="bubble-tank" id="bubbleTank"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="head-charge" id="headCharge"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="status" id="status">
+          <span>READY</span>
+          <small>呼吸を合わせろ</small>
+        </div>
+        <div class="trace-game" id="traceGame" aria-label="発光する円をなぞって吸引">
+          <div class="trace-copy"><span>BREATH CIRCUIT</span><small>光の軌道を、途切れずになぞる</small></div>
+          <svg class="trace-svg" viewBox="0 0 300 300" aria-hidden="true"><defs><filter id="traceGlow"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle class="trace-guide" cx="150" cy="150" r="125"/><circle class="trace-progress" id="traceProgress" cx="150" cy="150" r="125"/><circle class="trace-spark" id="traceSpark" cx="150" cy="25" r="7"/></svg>
+          <div class="trace-center"><strong id="soloAmount">0</strong><small>/ 1000 ML</small><em id="accuracy">精度 —</em></div>
+        </div>
+        <button class="tap-zone left" id="tap1" aria-label="プレイヤー1 吸引">
+          <span class="key">A</span><b>TAP TO INHALE</b><i></i>
+        </button>
+        <button class="tap-zone right" id="tap2" aria-label="プレイヤー2 吸引">
+          <span class="key">L</span><b>TAP TO INHALE</b><i></i>
+        </button>
+      </div>
+
+      <div class="footer-hint"><span id="ruleHint">10秒間、誰よりも速くタップ。</span><i></i><span id="modeHint">左は A、右は L キーでも操作できます</span></div>
+    </section>
+  </main>
+
+  <div class="modal show" id="intro">
+    <div class="modal-card home-card">
+      <div class="orb"><span></span></div>
+      <div class="eyebrow">THE NEXT RITUAL</div>
+      <h1>吸い込め。<br><em>限界</em>の、その先へ。</h1>
+      <p>プレイするステージを選択してください。</p>
+      <div class="mode-cards">
+        <button id="startBtn"><em>01</em><span>2P BATTLE</span><small>10秒間のタップ対決</small></button>
+        <button id="soloStartBtn"><em>02</em><span>BREATH CIRCUIT</span><small>円をなぞるタイムアタック</small></button>
+      </div>
+      <div class="ranking-home"><span>LOCAL TOP RECORDS</span><div><b>2P</b><em id="homeBattleBest">NO RECORD</em><b>SOLO</b><em id="homeSoloBest">NO RECORD</em></div></div>
+      <span class="mini">NO FIRE. JUST ENERGY.</span>
+    </div>
+  </div>
+
+  <div class="modal" id="result">
+    <div class="modal-card result-card">
+      <div class="eyebrow" id="resultEyebrow">BATTLE COMPLETE</div>
+      <h2 id="winner">PLAYER 1<br><em>DOMINATES</em></h2>
+      <div class="result-stats"><div><small>PLAYER 1</small><b id="final1">0 ML</b></div><i></i><div><small>PLAYER 2</small><b id="final2">0 ML</b></div></div>
+      <p id="resultCopy">蒼い一撃が、空気を支配した。</p>
+      <button class="primary" id="retryBtn"><span>REPLAY</span><small>もう一度挑む</small></button>
+      <button class="home-btn" id="homeBtn">← HOME / STAGE SELECT</button>
+      <div class="leaderboard"><span>TOP 10 RECORDS</span><ol id="rankingList"></ol></div>
+    </div>
+  </div>
+  <div class="modal" id="pauseModal">
+    <div class="modal-card pause-card">
+      <div class="pause-icon"><i></i><i></i></div>
+      <div class="eyebrow">SESSION PAUSED</div>
+      <h2>ひと呼吸、<br><em>整えよう。</em></h2>
+      <p>ゲームは一時停止しています。</p>
+      <button class="primary" id="resumeBtn"><span>RESUME</span><small>ゲームを再開する</small></button>
+      <button class="home-btn pause-home" id="pauseHomeBtn">← HOME / STAGE SELECT</button>
+    </div>
+  </div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
