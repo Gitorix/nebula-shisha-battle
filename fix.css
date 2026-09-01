@@ -1,0 +1,2 @@
+/* The shisha is dimmed only on the home modal, never in solo gameplay. */
+.solo .shisha,.solo.countdown-active .shisha{opacity:1!important;filter:saturate(1.08) contrast(1.06)!important;transition:filter .25s,opacity .25s!important}
