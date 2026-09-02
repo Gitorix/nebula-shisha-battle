@@ -1,0 +1,10 @@
+.relay .timer {
+  color: #e9784f !important;
+  font-weight: 700;
+  text-shadow: 0 0 12px #e9784f80, 0 0 28px #b942243d;
+}
+
+.relay .relay-hud b {
+  color: #e9784f;
+  text-shadow: 0 0 12px #e9784f66;
+}
