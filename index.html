@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="home-background.css" />
   <link rel="stylesheet" href="title-effect.css" />
   <link rel="stylesheet" href="electronic-font.css" />
+  <link rel="stylesheet" href="relay.css" />
   <style>.solo-launch{display:block;margin:-7px auto 18px;border:0;background:transparent;color:#7cdff0;font-size:9px;font-weight:700;letter-spacing:.19em;cursor:pointer;padding:10px 24px}.solo-launch small{display:block;margin-top:5px;color:#59677d;font-size:7px;letter-spacing:.1em}.solo-launch:hover{color:#fff;text-shadow:0 0 16px #24eaff}.pause-trigger{position:fixed!important;top:20px!important}</style>
 </head>
 <body>
@@ -62,6 +63,7 @@
       </div>
 
       <div class="arena">
+        <div class="relay-hud" id="relayHud"><span id="relayPlayerLabel">PLAYER 1 / 3</span><b id="relayTargetLabel">TARGET &lt; 15.00 SEC</b></div>
         <div class="halo"></div>
         <div class="beam left"></div><div class="beam right"></div>
         <img class="shisha" src="assets/electric-shisha.png" alt="二本のホースを備えた電子シーシャ" draggable="false" />
@@ -95,9 +97,10 @@
       <div class="eyebrow">THE NEXT RITUAL</div>
       <h1><em>Electronicシーシャ</em></h1>
       <p>プレイするステージを選択してください。</p>
-      <div class="mode-cards">
+      <div class="mode-cards three-modes">
         <button id="startBtn"><em>01</em><span>2P BATTLE</span><small>10秒間のタップ対決</small></button>
         <button id="soloStartBtn"><em>02</em><span>BREATH CIRCUIT</span><small>円をなぞるタイムアタック</small></button>
+        <button id="relayStartBtn"><em>03</em><span>RELAY MODE</span><small>前の記録を超えて呼吸をつなぐ</small></button>
       </div>
       <div class="ranking-home"><span>LOCAL TOP RECORDS</span><div><b>2P</b><em id="homeBattleBest">NO RECORD</em><b>SOLO</b><em id="homeSoloBest">NO RECORD</em></div></div>
       <span class="mini">NO FIRE. JUST ENERGY.</span>
@@ -124,6 +127,22 @@
       <button class="primary" id="resumeBtn"><span>RESUME</span><small>ゲームを再開する</small></button>
       <button class="home-btn pause-home" id="pauseHomeBtn">← HOME / STAGE SELECT</button>
     </div>
+  </div>
+  <div class="modal" id="relaySetup">
+    <div class="modal-card relay-setup-card">
+      <div class="eyebrow">BREATH RELAY SETUP</div>
+      <h2>呼吸を、<br><em>つなげ。</em></h2>
+      <div class="relay-options">
+        <label><span>START LIMIT</span><b><output id="limitOutput">15</output> SEC</b><input id="relayLimit" type="range" min="8" max="30" step="1" value="15"></label>
+        <label><span>PLAYERS</span><b><output id="playersOutput">3</output> PEOPLE</b><input id="relayPlayers" type="range" min="2" max="10" step="1" value="3"></label>
+      </div>
+      <p>最初の制限時間をクリアし、次のプレイヤーは<br>直前の記録より速くゴールしてください。</p>
+      <button class="primary" id="relayGoBtn"><span>START RELAY</span><small>リレーを始める</small></button>
+      <button class="home-btn" id="relayCancelBtn">← STAGE SELECT</button>
+    </div>
+  </div>
+  <div class="modal relay-transition" id="relayTransition">
+    <div class="modal-card"><div class="relay-badge" id="relayBadge">CLEAR</div><div class="eyebrow">BREATH PASSED</div><h2 id="relayMessage">NEXT<br><em>PLAYER 2</em></h2><p id="relayRule">前の記録より速く円を完成させろ。</p><button class="primary" id="relayNextBtn"><span>NEXT PLAYER</span><small>準備ができたらタップ</small></button></div>
   </div>
   <script src="./app.js"></script>
 </body>
