@@ -14,5 +14,6 @@ function staticWorker() {
 }
 
 export default defineConfig({
+  base: './',
   plugins: [sites(), staticWorker()],
 });
