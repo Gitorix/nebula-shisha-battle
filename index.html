@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="celebration.css" />
     <link rel="stylesheet" href="relay-time.css" />
     <link rel="stylesheet" href="battle-refinement.css" />
+    <link rel="stylesheet" href="mist-brand.css" />
   <style>.solo-launch{display:block;margin:-7px auto 18px;border:0;background:transparent;color:#7cdff0;font-size:9px;font-weight:700;letter-spacing:.19em;cursor:pointer;padding:10px 24px}.solo-launch small{display:block;margin-top:5px;color:#59677d;font-size:7px;letter-spacing:.1em}.solo-launch:hover{color:#fff;text-shadow:0 0 16px #24eaff}.pause-trigger{position:fixed!important;top:20px!important}</style>
 </head>
 <body>
@@ -30,9 +31,9 @@
   <div class="noise"></div>
   <main>
     <header>
-      <a class="brand" href="#" aria-label="NEBULA Home">
-        <span class="brand-mark"></span>
-        <span>NEBULA</span><small>SHISHA LAB</small>
+      <a class="brand" href="#" aria-label="MIST Home">
+        <img class="brand-logo" src="assets/mist-logo.png" alt="MISTロゴ" />
+        <span>MIST</span><small>SHISHA LAB</small>
       </a>
       <button class="sound" id="soundBtn" aria-label="サウンド切替"><span></span><span></span><span></span><span></span></button>
     </header>
@@ -75,7 +76,7 @@
         <div class="head-charge" id="headCharge"><i></i><i></i><i></i><i></i><i></i></div>
         <div class="status" id="status">
           <span>READY</span>
-          <small>呼吸を合わせろ</small>
+          <small>高速タップで吸引量を競え</small>
         </div>
         <div class="trace-game" id="traceGame" aria-label="発光する円をなぞって吸引">
           <div class="trace-copy"><span>BREATH CIRCUIT</span><small>光の軌道を、途切れずになぞる</small></div>
@@ -125,8 +126,8 @@
     <div class="modal-card pause-card">
       <div class="pause-icon"><i></i><i></i></div>
       <div class="eyebrow">SESSION PAUSED</div>
-      <h2>ひと呼吸、<br><em>整えよう。</em></h2>
-      <p>ゲームは一時停止しています。</p>
+      <h2>ひと呼吸<br><em>整えよう</em></h2>
+      <p>ゲームは一時停止しています</p>
       <button class="primary" id="resumeBtn"><span>RESUME</span><small>ゲームを再開する</small></button>
       <button class="home-btn pause-home" id="pauseHomeBtn">← HOME / STAGE SELECT</button>
     </div>
@@ -134,7 +135,7 @@
   <div class="modal" id="relaySetup">
     <div class="modal-card relay-setup-card">
       <div class="eyebrow">BREATH RELAY SETUP</div>
-      <h2>呼吸を、<br><em>つなげ。</em></h2>
+      <h2>呼吸を<br><em>つなげ</em></h2>
       <div class="relay-options">
         <label><span>START LIMIT</span><b><output id="limitOutput">15</output> SEC</b><input id="relayLimit" type="range" min="8" max="30" step="1" value="15"></label>
         <label><span>PLAYERS</span><b><output id="playersOutput">3</output> PEOPLE</b><input id="relayPlayers" type="range" min="2" max="10" step="1" value="3"></label>
