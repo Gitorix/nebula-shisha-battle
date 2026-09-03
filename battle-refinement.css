@@ -26,6 +26,15 @@
   letter-spacing: .025em;
   text-shadow: 0 0 14px #e9784f8f, 0 0 34px #b942245c;
 }
+.relay .relay-hud {
+  top: -4%;
+  left: auto;
+  right: 3%;
+  transform: none;
+  min-width: 210px;
+  text-align: center;
+}
+.relay .trace-copy small { display: none; }
 .relay-out #relayMessage em {
   background: none;
   -webkit-background-clip: border-box;
@@ -90,5 +99,6 @@
 @media(max-width:700px) {
   .tap-zone { width: 112px; height: 112px; bottom: 1%; }
   .relay .relay-hud b strong { font-size: 29px; }
+  .relay .relay-hud { top: -2%; right: 1%; min-width: 170px; }
   .footer-hint { font-size: 7px; gap: 8px; }
 }
