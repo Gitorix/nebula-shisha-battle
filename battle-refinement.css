@@ -27,14 +27,20 @@
   text-shadow: 0 0 14px #e9784f8f, 0 0 34px #b942245c;
 }
 .relay .relay-hud {
-  top: -4%;
+  top: -5%;
   left: auto;
   right: 3%;
   transform: none;
-  min-width: 210px;
-  text-align: center;
+  width: 230px;
+  min-width: 0;
+  padding: 8px 12px;
+  text-align: right;
+  border-radius: 12px;
+  background: linear-gradient(90deg, transparent, #030812b8 28%, #030812eb);
 }
-.relay .trace-copy small { display: none; }
+.relay .relay-hud b small,.relay .relay-hud b strong { text-align: right; white-space: nowrap; }
+.relay .trace-copy { display: none; }
+.countdown-active .trace-copy { opacity: 0; }
 .relay-out #relayMessage em {
   background: none;
   -webkit-background-clip: border-box;
@@ -98,7 +104,12 @@
 
 @media(max-width:700px) {
   .tap-zone { width: 112px; height: 112px; bottom: 1%; }
-  .relay .relay-hud b strong { font-size: 29px; }
-  .relay .relay-hud { top: -2%; right: 1%; min-width: 170px; }
+  .relay .relay-hud b strong { font-size: 24px; }
+  .relay .relay-hud { top: -2%; right: 0; width: 165px; padding-right: 8px; }
   .footer-hint { font-size: 7px; gap: 8px; }
+}
+
+@media(min-width:701px) and (max-width:900px) {
+  .relay .relay-hud { top: -4%; right: 1.5%; width: 215px; }
+  .relay .relay-hud b strong { font-size: 30px; }
 }
