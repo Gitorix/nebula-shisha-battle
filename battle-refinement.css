@@ -61,17 +61,17 @@
   display: block;
   overflow: visible;
   background:
-    radial-gradient(circle, #24eaff3d 0 32%, transparent 33%),
-    radial-gradient(circle, transparent 0 33%, #24eaff18 34% 65%, transparent 66%),
-    radial-gradient(circle, transparent 0 66%, #071925e8 67% 100%);
+    radial-gradient(circle, #24eaff52 0 16%, transparent 17%),
+    radial-gradient(circle, transparent 0 17%, #24eaff18 18% 56%, transparent 57%),
+    radial-gradient(circle, transparent 0 57%, #071925e8 58% 100%);
   box-shadow: 0 0 28px #24eaff24, inset 0 0 26px #24eaff1c;
 }
 .tap-zone.right {
   border-color: #a967ff99;
   background:
-    radial-gradient(circle, #a967ff45 0 32%, transparent 33%),
-    radial-gradient(circle, transparent 0 33%, #a967ff1c 34% 65%, transparent 66%),
-    radial-gradient(circle, transparent 0 66%, #170d25e8 67% 100%);
+    radial-gradient(circle, #a967ff58 0 16%, transparent 17%),
+    radial-gradient(circle, transparent 0 17%, #a967ff1c 18% 56%, transparent 57%),
+    radial-gradient(circle, transparent 0 57%, #170d25e8 58% 100%);
   box-shadow: 0 0 28px #a967ff29, inset 0 0 26px #a967ff1f;
 }
 .tap-zone::before,.tap-zone::after {
@@ -83,17 +83,17 @@
   border-radius: 50%;
   pointer-events: none;
 }
-.tap-zone::before { width: 66%; height: 66%; }
-.tap-zone::after { width: 33%; height: 33%; border-color: #c9fbffcf; box-shadow: 0 0 14px #24eaff80; }
+.tap-zone::before { width: 57.2%; height: 57.2%; }
+.tap-zone::after { width: 16.5%; height: 16.5%; border-color: #ffe28acf; box-shadow: 0 0 14px #ffd24a99; }
 .tap-zone.right::before { border-color: #b98aff85; }
-.tap-zone.right::after { border-color: #eadcffd9; box-shadow: 0 0 14px #a967ff91; }
+.tap-zone.right::after { border-color: #ffe28ad9; box-shadow: 0 0 14px #ffd24aaa; }
 .tap-multiplier,.tap-core { position: absolute; left: 50%; z-index: 1; pointer-events: none; font-weight: 800; }
 .tap-multiplier.outer { top: 5px; translate: -50% 0; color: #788da0; font-size: 8px; }
-.tap-multiplier.middle { top: 25%; translate: -50% -50%; color: #8fdde8; font-size: 9px; }
+.tap-multiplier.middle { top: 31%; translate: -50% -50%; color: #8fdde8; font-size: 9px; }
 .tap-zone.right .tap-multiplier.middle { color: #c9a8ff; }
 .tap-core { top: 50%; translate: -50% -50%; display: grid; place-items: center; color: #eaffff; }
-.tap-core b { font-size: 17px; line-height: 1; }
-.tap-core small { margin-top: 3px; font-size: 6px; letter-spacing: .12em; }
+.tap-core b { font-size: 11px; line-height: 1; color:#ffe28a; }
+.tap-core small { display:none; }
 .tap-zone[data-power="3"] { filter: brightness(1.8); box-shadow: 0 0 48px #ffffff70, 0 0 80px #24eaff55; }
 .tap-zone.right[data-power="3"] { box-shadow: 0 0 48px #ffffff70, 0 0 80px #a967ff66; }
 .tap-zone[data-power="2"] { filter: brightness(1.45); }
@@ -111,10 +111,11 @@
   translate: -50% -50%;
   animation: tapMultiplierFly 1.25s cubic-bezier(.08,.58,.2,1) forwards;
 }
-.tap-score-float.power-2 { color: #70eaff; font-size: 23px; }
-.tap-score-float.power-3 { color: #fff; font-size: 27px; text-shadow: 0 0 8px #fff,0 0 22px #29eaff,0 0 40px #9d5cff; }
-.tap-zone.right .tap-score-float.power-2 { color: #c49aff; }
-.tap-zone.right .tap-score-float.power-3 { text-shadow: 0 0 8px #fff,0 0 24px #b76cff,0 0 42px #643cff; }
+.tap-score-float.power-1 { color: #fff; }
+.tap-score-float.power-2 { color: #d8dce3; font-size: 23px; text-shadow:0 0 7px #fff,0 0 20px #aeb7c6; }
+.tap-score-float.power-3 { color: #ffd34f; font-size: 27px; text-shadow: 0 0 8px #fff3bd,0 0 22px #ffd34f,0 0 42px #b87500; }
+.tap-zone.right .tap-score-float.power-2 { color: #d8dce3; }
+.tap-zone.right .tap-score-float.power-3 { color:#ffd34f; text-shadow: 0 0 8px #fff3bd,0 0 22px #ffd34f,0 0 42px #b87500; }
 @keyframes tapMultiplierFly {
   0% { opacity: 0; transform: translate(0,0) scale(.55) rotate(-8deg); }
   14% { opacity: 1; transform: translate(calc(var(--fly-x) * .12),-16px) scale(1.2) rotate(0); }
