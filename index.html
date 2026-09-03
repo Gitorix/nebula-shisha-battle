@@ -81,7 +81,7 @@
         <div class="trace-game" id="traceGame" aria-label="発光する円をなぞって吸引">
           <div class="trace-copy"><span>BREATH CIRCUIT</span><small>光の軌道を、途切れずになぞる</small></div>
           <svg class="trace-svg" viewBox="0 0 300 300" aria-hidden="true"><defs><filter id="traceGlow"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle class="trace-guide" cx="150" cy="150" r="125"/><circle class="trace-progress" id="traceProgress" cx="150" cy="150" r="125"/><circle class="trace-spark" id="traceSpark" cx="150" cy="25" r="7"/></svg>
-          <div class="trace-center"><strong id="soloAmount">0</strong><small>/ 1000 ML</small><em id="accuracy">精度 —</em></div>
+          <div class="trace-center"><strong id="soloAmount">0</strong><small id="traceTarget">/ 2000 ML</small><em id="accuracy">精度 —</em></div>
         </div>
         <button class="tap-zone left" id="tap1" aria-label="プレイヤー1 吸引。中心3倍、中間2倍、外周1倍">
           <span class="tap-multiplier outer">×1</span><span class="tap-multiplier middle">×2</span><span class="tap-core"><b>×3</b><small>TAP</small></span>
