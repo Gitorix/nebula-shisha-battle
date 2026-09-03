@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="relay.css" />
     <link rel="stylesheet" href="celebration.css" />
     <link rel="stylesheet" href="relay-time.css" />
+    <link rel="stylesheet" href="battle-refinement.css" />
   <style>.solo-launch{display:block;margin:-7px auto 18px;border:0;background:transparent;color:#7cdff0;font-size:9px;font-weight:700;letter-spacing:.19em;cursor:pointer;padding:10px 24px}.solo-launch small{display:block;margin-top:5px;color:#59677d;font-size:7px;letter-spacing:.1em}.solo-launch:hover{color:#fff;text-shadow:0 0 16px #24eaff}.pause-trigger{position:fixed!important;top:20px!important}</style>
 </head>
 <body>
@@ -81,15 +82,15 @@
           <svg class="trace-svg" viewBox="0 0 300 300" aria-hidden="true"><defs><filter id="traceGlow"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle class="trace-guide" cx="150" cy="150" r="125"/><circle class="trace-progress" id="traceProgress" cx="150" cy="150" r="125"/><circle class="trace-spark" id="traceSpark" cx="150" cy="25" r="7"/></svg>
           <div class="trace-center"><strong id="soloAmount">0</strong><small>/ 1000 ML</small><em id="accuracy">精度 —</em></div>
         </div>
-        <button class="tap-zone left" id="tap1" aria-label="プレイヤー1 吸引">
-          <span class="key">A</span><b>TAP TO INHALE</b><i></i>
+        <button class="tap-zone left" id="tap1" aria-label="プレイヤー1 吸引。中心3倍、中間2倍、外周1倍">
+          <span class="tap-multiplier outer">×1</span><span class="tap-multiplier middle">×2</span><span class="tap-core"><b>×3</b><small>TAP</small></span>
         </button>
-        <button class="tap-zone right" id="tap2" aria-label="プレイヤー2 吸引">
-          <span class="key">L</span><b>TAP TO INHALE</b><i></i>
+        <button class="tap-zone right" id="tap2" aria-label="プレイヤー2 吸引。中心3倍、中間2倍、外周1倍">
+          <span class="tap-multiplier outer">×1</span><span class="tap-multiplier middle">×2</span><span class="tap-core"><b>×3</b><small>TAP</small></span>
         </button>
       </div>
 
-      <div class="footer-hint"><span id="ruleHint">10秒間、誰よりも速くタップ。</span><i></i><span id="modeHint">左は A、右は L キーでも操作できます</span></div>
+      <div class="footer-hint"><span id="ruleHint">中心 ×3 ／ 中間 ×2 ／ 外周 ×1。正確なタップほど吸引量アップ。</span><i></i><span id="modeHint">左は A、右は L キーでも操作できます</span></div>
     </section>
   </main>
 
@@ -100,7 +101,7 @@
       <h1><em>Electronicシーシャ</em></h1>
       <p>プレイするステージを選択してください。</p>
       <div class="mode-cards three-modes">
-        <button id="startBtn"><em>01</em><span>2P BATTLE</span><small>10秒間のタップ対決</small></button>
+        <button id="startBtn"><em>01</em><span>2P BATTLE</span><small>中心×3・中間×2・外周×1の精密タップ対決</small></button>
         <button id="soloStartBtn"><em>02</em><span>BREATH CIRCUIT</span><small>円をなぞるタイムアタック</small></button>
         <button id="relayStartBtn"><em>03</em><span>RELAY MODE</span><small>前の記録を超えて呼吸をつなぐ</small></button>
       </div>
