@@ -109,7 +109,7 @@
   pointer-events: none;
   text-shadow: 0 0 7px currentColor, 0 0 18px currentColor;
   translate: -50% -50%;
-  animation: tapMultiplierFly .72s cubic-bezier(.1,.7,.25,1) forwards;
+  animation: tapMultiplierFly 1.25s cubic-bezier(.08,.58,.2,1) forwards;
 }
 .tap-score-float.power-2 { color: #70eaff; font-size: 23px; }
 .tap-score-float.power-3 { color: #fff; font-size: 27px; text-shadow: 0 0 8px #fff,0 0 22px #29eaff,0 0 40px #9d5cff; }
@@ -117,7 +117,8 @@
 .tap-zone.right .tap-score-float.power-3 { text-shadow: 0 0 8px #fff,0 0 24px #b76cff,0 0 42px #643cff; }
 @keyframes tapMultiplierFly {
   0% { opacity: 0; transform: translate(0,0) scale(.55) rotate(-8deg); }
-  18% { opacity: 1; transform: translate(calc(var(--fly-x) * .18),-14px) scale(1.2) rotate(0); }
+  14% { opacity: 1; transform: translate(calc(var(--fly-x) * .12),-16px) scale(1.2) rotate(0); }
+  68% { opacity: 1; transform: translate(calc(var(--fly-x) * .7),calc(var(--fly-y) * .7)) scale(1) rotate(calc(var(--fly-r) * .7)); }
   100% { opacity: 0; transform: translate(var(--fly-x),var(--fly-y)) scale(.9) rotate(var(--fly-r)); }
 }
 
