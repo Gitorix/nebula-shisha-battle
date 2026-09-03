@@ -1,15 +1,25 @@
-.stage-ready { z-index: 24; background: radial-gradient(circle at 50% 45%,#0b2540ed,#02040af7 68%); }
-.stage-ready-card { width: min(560px,92vw); padding: 44px 28px; }
+.stage-ready {
+  z-index: 24;
+  background: linear-gradient(180deg,#02040a25,#02040a58);
+  backdrop-filter: none;
+}
+.stage-ready-card {
+  width: min(560px,92vw);
+  padding: 38px 28px;
+  background: radial-gradient(circle,#061321b8 0,#03081272 55%,transparent 76%);
+  text-shadow: 0 2px 18px #000;
+}
 .stage-ready-card h2 { margin: 18px 0 12px; }
 .stage-ready-card p { margin-bottom: 28px; }
 .stage-start {
   position: relative;
   display: block;
-  width: min(360px,82vw);
-  height: 96px;
+  width: min(340px,82vw);
+  height: 88px;
   margin: 28px auto 18px;
   border: 2px solid #6af2ff;
-  border-radius: 18px;
+  border-radius: 0;
+  clip-path: polygon(16px 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%,0 16px);
   background: linear-gradient(115deg,#08718f,#194ac2 54%,#7131a6);
   color: #fff;
   cursor: pointer;
@@ -20,7 +30,7 @@
 .stage-start::before { content:''; position:absolute; inset:-50%; background:linear-gradient(100deg,transparent 38%,#fff5 50%,transparent 62%); transform:translateX(-65%); animation:startSweep 2.4s ease-in-out infinite; }
 .stage-start span { position:relative; display:block; font-size:30px; font-weight:900; letter-spacing:.22em; padding-left:.22em; }
 .stage-start small { position:relative; display:block; margin-top:5px; color:#c9f8ff; font-size:9px; letter-spacing:.24em; }
-.stage-start:hover { transform:scale(1.035); filter:brightness(1.2); box-shadow:0 0 42px #24eaff88,0 0 90px #7650ff50; }
+.stage-start:hover { transform:translateY(-2px) scale(1.025); filter:brightness(1.2); box-shadow:0 0 42px #24eaff88,0 0 90px #7650ff50; }
 .stage-start:active { transform:scale(.97); }
 @keyframes startSweep { 0%,25%{transform:translateX(-65%)}70%,100%{transform:translateX(65%)} }
-@media(max-width:700px){.stage-ready-card{padding:30px 20px}.stage-start{height:88px}.stage-start span{font-size:27px}}
+@media(max-width:700px){.stage-ready-card{padding:26px 20px}.stage-start{height:82px}.stage-start span{font-size:27px}}
