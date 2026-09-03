@@ -52,8 +52,8 @@
 
 /* Three concentric scoring zones, sized for rapid fingertip input. */
 .tap-zone {
-  width: clamp(112px, 11vw, 138px);
-  height: clamp(112px, 11vw, 138px);
+  width: clamp(104px, 10vw, 126px);
+  height: clamp(104px, 10vw, 126px);
   padding: 0;
   border: 1px solid #24eaff8c;
   border-radius: 50%;
@@ -103,7 +103,7 @@
 .solo-result #winner em { color: transparent; }
 
 @media(max-width:700px) {
-  .tap-zone { width: 112px; height: 112px; bottom: 1%; }
+  .tap-zone { width: 104px; height: 104px; bottom: 1%; }
   .relay .relay-hud b strong { font-size: 24px; }
   .relay .relay-hud { top: -2%; right: 0; width: 165px; padding-right: 8px; }
   .footer-hint { font-size: 7px; gap: 8px; }
