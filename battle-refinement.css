@@ -7,14 +7,32 @@
   font-weight: 600;
   text-shadow: 0 0 15px #ffffff2e;
 }
-.relay .relay-hud b {
+.relay .relay-hud b { display: block; margin-top: 8px; color: #fff; }
+.relay .relay-hud b small {
   display: block;
-  margin-top: 5px;
+  color: #f4f7ff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-shadow: 0 0 10px #000;
+}
+.relay .relay-hud b strong {
+  display: block;
+  margin-top: 2px;
   color: #e9784f;
-  font-size: clamp(24px, 3vw, 34px);
+  font-size: clamp(27px, 3.4vw, 39px);
   font-weight: 900;
-  letter-spacing: .035em;
-  text-shadow: 0 0 14px #e9784f80, 0 0 32px #b942244d;
+  line-height: 1;
+  letter-spacing: .025em;
+  text-shadow: 0 0 14px #e9784f8f, 0 0 34px #b942245c;
+}
+.relay-out #relayMessage em {
+  background: none;
+  -webkit-background-clip: border-box;
+  -webkit-text-fill-color: #ff304f;
+  color: #ff304f;
+  text-shadow: 0 0 8px #ff304f, 0 0 22px #ff183c, 0 0 50px #a90024;
+  filter: brightness(1.2);
 }
 
 /* Three concentric scoring zones, sized for rapid fingertip input. */
@@ -71,6 +89,6 @@
 
 @media(max-width:700px) {
   .tap-zone { width: 112px; height: 112px; bottom: 1%; }
-  .relay .relay-hud b { font-size: 23px; }
+  .relay .relay-hud b strong { font-size: 29px; }
   .footer-hint { font-size: 7px; gap: 8px; }
 }
