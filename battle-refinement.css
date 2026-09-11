@@ -138,3 +138,8 @@
   .relay .relay-hud { top: -4%; right: 1.5%; width: 215px; }
   .relay .relay-hud b strong { font-size: 30px; }
 }
+
+/* Desktop only: keep the timer clear of the shisha head. */
+@media(min-width:901px) {
+  .timer-wrap { transform: translateY(-28px); }
+}
