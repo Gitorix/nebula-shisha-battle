@@ -1,0 +1,43 @@
+.three-modes .stage-target {
+  display: inline-flex;
+  align-items: center;
+  min-height: 25px;
+  margin-top: 14px;
+  padding: 5px 10px;
+  border: 1px solid #54e9ff5c;
+  background: #062036b8;
+  color: #7ff1ff;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .14em;
+  line-height: 1;
+  box-shadow: 0 0 18px #25dcff1f;
+  white-space: nowrap;
+}
+
+.three-modes button:nth-child(3) .stage-target {
+  border-color: #e9784f70;
+  background: #2a130db8;
+  color: #ff9a70;
+  box-shadow: 0 0 18px #e9784f25;
+}
+
+.three-modes button { min-height: 150px; }
+
+.stage-ready-card #stageReadyCopy {
+  display: inline-block;
+  min-width: min(420px,82vw);
+  margin: 4px auto 12px;
+  padding: 9px 16px;
+  border-top: 1px solid #ffffff18;
+  border-bottom: 1px solid #ffffff18;
+  color: #dcecff;
+  background: #02081270;
+  white-space: nowrap;
+}
+
+@media(max-width:700px) {
+  .three-modes button { min-height: 116px !important; }
+  .three-modes .stage-target { margin-top: 9px; }
+  .stage-ready-card #stageReadyCopy { min-width: 0; width: 88vw; white-space: normal; }
+}
