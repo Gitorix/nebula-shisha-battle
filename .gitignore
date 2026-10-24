@@ -2,3 +2,14 @@ node_modules/
 dist/
 *.tar.gz
 .DS_Store
+.env
+.env.*
+!.env.example
+.npmrc
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+credentials.json
+service-account*.json

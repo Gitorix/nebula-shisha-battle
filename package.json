@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "check": "node --check app.js && vite build",
+    "security:audit": "npm audit --audit-level=high"
   },
   "devDependencies": {
-    "@openai/sites-vite-plugin": "latest",
-    "vite": "latest"
+    "vite": "8.3.5"
   }
 }
